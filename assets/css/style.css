@@ -1,0 +1,19 @@
+body{
+	background: url("../images/RuinsBG.jpg");
+	font-size: 20px;
+	line-height: 34px;
+	color: white;
+	font-family: "8-BIT WONDER";
+	text-align: center;
+}
+script{
+	font-size: 20px;
+	line-height: 34px;
+	color: white;
+	font-family: "8-BIT WONDER";	
+}
+
+@font-face {
+	font-family: "8-BIT WONDER";
+	src: url("../font/8-bitwonder.ttf");
+}

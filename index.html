@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Psychic Game</title>
+
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<script   src="https://code.jquery.com/jquery-2.2.3.js"   integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4="   crossorigin="anonymous"></script>
+</head>
+<body>
+
+<h1>The Psychic Game</h1>
+<br>
+	<p>
+	Guess what letter I am thinking of...
+	</p>
+	<p>
+	It can be any letter in the alphabet...
+	</p>
+	<p>
+	To begin, please press any letter on the keyboard...
+	</p>
+<br>
+
+	<img src="assets/images/ut.gif">
+
+	<iframe width="0" height="0" src="https://www.youtube.com/embed/GCjqmC6VAho?list=PLUO8mnyUG2EL36zO80EpsPZW1yNLlJwoa&autoplay=1" frameborder="0" allowfullscreen></iframe>
+
+<div id="guess">
+</div>
+
+<div id="game">
+</div>
+
+<script type="text/javascript">
+
+// Create an array that lists out all of the options
+var options = ['a','b','c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+var wins = 0;
+var gl = 9;
+var losses = 0;
+
+var computerGuess = options[Math.floor(Math.random()*options.length)];
+	console.log(computerGuess);
+
+
+// Captures Key Clicks
+document.onkeyup = function(event) {
+
+	// Determines which exact key was selected. Make it lowercase
+	var userGuessList = []
+
+	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+
+	userGuessList.push(userGuess);
+
+	console.log(userGuessList);
+
+	
+
+	if(userGuessList == 'a' || userGuessList == 'b' || userGuess =='c' || userGuessList =='d' || userGuessList =='e' || userGuess =='f' || userGuessList =='g' || userGuessList =='h' || userGuessList =='i' || userGuessList =='j' || userGuessList =='k' || userGuessList =='l' || userGuessList =='m' || userGuessList =='n' || userGuessList =='o' || userGuessList =='p' || userGuessList =='q' || userGuessList =='r' || userGuessList =='s' || userGuessList =='t' || userGuessList =='u' || userGuessList =='v' || userGuessList =='w' || userGuessList =='x' || userGuessList =='y' || userGuessList =='z'){
+
+		// append!!!!!!
+	
+	if (userGuessList == computerGuess) {
+			wins++;
+			gl = 9;
+			$("#guess").html("");
+
+	}else if (userGuessList !== computerGuess) {
+			gl--;
+			$("#guess").append(userGuess);
+	}
+	if (gl < 1) {
+		losses++;
+		gl = 9;
+		$("#guess").html("");
+	}
+} 
+else // a invalid key was input
+{
+	alert("Invalid key");
+}	
+
+//changes page content
+document.getElementById("game").innerHTML = "Your guesses so far: " + userGuess + "<br>" + "Wins: " + wins+ "<br>" + "Losses: " + losses+ "<br>" + "Guesses left: " + gl;
+}
+
+</script>
+</body>
+</html>
