@@ -15,5 +15,8 @@ script{
 
 @font-face {
 	font-family: "8-BIT WONDER";
-	src: url("8-bitwonder.ttf");
+	src: url("8-bitwonder.ttf") format("truetype")
+		 url("8-BIT WONDER.woff") format("woff")
+		 url("8-bitwonder.woff2") format("woff2")
+		 url("8-bitwonder.eot") format("embedded-opentype");
 }
